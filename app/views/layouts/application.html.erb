@@ -20,7 +20,6 @@
     <![endif]-->
   </head>
   <body>
-
     <div class="navbar navbar-default navbar-static-top">
       <div class="container">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
@@ -38,7 +37,11 @@
         </div>
       </div>
     </div>
-
+    <% flash.each do |name, msg| %>
+      <ul>
+        <li><%= msg %></li>
+      </ul>
+    <% end %>
     <div class="container">
       <div class="row">
         <div class="col-lg-9">

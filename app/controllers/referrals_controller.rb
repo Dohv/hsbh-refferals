@@ -5,8 +5,17 @@ class ReferralsController < ApplicationController
 
   def create
     @referral = Referral.new(referral_params)
-    @referral.save
-    redirect_to referral_path(@referral)
+    @referral.user = current_user
+    if @referral.save
+      flash[:notice] = "Referral was succesfully created"
+      redirect_to referral_path(@referral)
+    else
+      render 'new'
+    end
+  end
+
+  def show
+    @referral = Referral.find(params[:id])
   end
     
   private
