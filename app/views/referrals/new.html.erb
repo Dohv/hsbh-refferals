@@ -1,0 +1,26 @@
+<h1>Create an referral</h1>
+  <%= form_for @referral do |f| %>
+  <p>
+    <%= f.label :first_name %><br/>
+    <%= f.text_field :first_name %>
+  </p>
+  <p>
+    <%= f.label :last_name %><br/>
+    <%= f.text_field :last_name %>
+  </p>
+   <p>
+    <%= f.label :social_security_number %><br/>
+    <%= f.text_field :ssn %>
+  </p>
+   <p>
+    <%= f.label :medicare_id_id %><br/>
+    <%= f.text_field :medicare_id %>
+  </p>
+   <p>
+    <%= f.label :phone_number %><br/>
+    <%= f.text_field :phone_number %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+  <% end %>
