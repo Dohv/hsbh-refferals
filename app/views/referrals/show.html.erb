@@ -1,18 +1,12 @@
-<h1>Showing selected referral</h1>
-<p>
-  First Name: <%= @referral.first_name %>
-</p>
-<p>
-  Last Name: <%= @referral.last_name %>
-</p>
-<p>
-  Social Security Number: <%= @referral.ssn %>
-</p>
-<p>
-  Medicare ID: <%= @referral.medicare_id %>
-</p>
-<p>
-  Phone Number: <%= @referral.phone_number %>
-</p>
-<%= link_to "Edit this referral", edit_referral_path(@referral) %> |
-<%= link_to "Back to referrals listing", referrals_path %>
+
+<h2 align="center"><%= @referral.first_name %> <%= @referral.last_name %></h2>
+<div class="well col-xs-8 col-xs-offset-2">
+  <h4 class="center ssn"><strong>SSN:</strong>  <%= @referral.ssn %></h4>
+  <h4 class="center medicareID"><strong>Medicare ID:</strong>  <%= @referral.medicare_id %></h4>
+  <h4 class="center phoneNumber"><strong>Phone number:</strong>  <%= @referral.phone_number %></h4>
+    
+  <div class="referral-actions">
+    <%= link_to "Edit this refferal", edit_referral_path(@referral), class: "btn btn-xs btn-primary" %>
+    <%= link_to "View all referals", referrals_path, class: "btn btn-xs btn-success" %>
+  </div>
+</div>

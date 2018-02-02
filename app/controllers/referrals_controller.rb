@@ -23,7 +23,7 @@ class ReferralsController < ApplicationController
     @referral = Referral.new(referral_params)
     @referral.user = current_user
     if @referral.save
-      flash[:notice] = "Referral was succesfully created"
+      flash[:success] = "Referral was succesfully created"
       redirect_to referral_path(@referral)
     else
       render 'new'
