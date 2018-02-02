@@ -1,4 +1,20 @@
 class ReferralsController < ApplicationController
+
+  def index
+    @referrals = Referral.all
+  end
+
+  def update
+    @referral = Referral.find(params[:id])
+    if @referral.update(referral_params)
+      flash[:success] = "Referral was succesfully updated"
+      redirect_to referral_path(@referral)
+    else
+      render 'edit'
+    end
+    
+  end
+
   def new
     @referral = Referral.new
   end
@@ -17,6 +33,12 @@ class ReferralsController < ApplicationController
   def show
     @referral = Referral.find(params[:id])
   end
+
+  def edit 
+    @referral = Referral.find(params[:id])
+  end
+
+  
     
   private
     def referral_params
