@@ -1,0 +1,8 @@
+<h1 align="center"><%= @user.company_name %>'s referrals</h1>
+<div align="center">
+  <%= will_paginate @user_referrals %>
+</div>
+<%= render 'referrals/referral', obj: @user_referrals %>
+<div align="center">
+  <%= will_paginate @user_referrals %>
+</div>
