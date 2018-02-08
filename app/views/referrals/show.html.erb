@@ -4,9 +4,20 @@
   <h4 class="center ssn"><strong>SSN:</strong>  <%= @referral.ssn %></h4>
   <h4 class="center medicareID"><strong>Medicare ID:</strong>  <%= @referral.medicare_id %></h4>
   <h4 class="center phoneNumber"><strong>Phone number:</strong>  <%= @referral.phone_number %></h4>
-    
+  <% if @referral.verified == 'yes' %>
+    <h4><strong class='verified'>Insurance Verified</strong></h4>
+  <% elsif @referral.verified == 'pending' %>
+    <h4><strong class='notYetVerified'>Insurance Verification Pending</strong></h4>
+  <% elsif @referral.verified == 'rejected' %>
+    <h4><strong class='rejected'>Insurance Rejected</strong></h4>
+  <% end %>
+  <%= render 'progress_bar_show', obj: @referral.status %>
   <div class="referral-actions">
     <%= link_to "Edit this refferal", edit_referral_path(@referral), class: "btn btn-xs btn-primary" %>
-    <%= link_to "View all referals", referrals_path, class: "btn btn-xs btn-success" %>
+    <% if current_user.role < 2 %>
+      <%= link_to "View all referals", referrals_path, class: "btn btn-xs btn-success" %>
+    <% else %>
+      <%= link_to "View all referals", user_path(current_user), class: "btn btn-xs btn-success" %>
+    <% end %>
   </div>
 </div>

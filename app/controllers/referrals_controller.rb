@@ -42,7 +42,7 @@ class ReferralsController < ApplicationController
     
   private
     def referral_params
-      params.require(:referral).permit(:first_name, :last_name, :ssn, :medicare_id, :phone_number, :verified)
+      params.require(:referral).permit(:first_name, :last_name, :ssn, :medicare_id, :phone_number, :verified, :status)
     end
 
     def require_same_user

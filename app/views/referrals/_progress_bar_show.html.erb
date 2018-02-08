@@ -1,0 +1,85 @@
+<% if obj == 'Entered' %>
+  <p class="progressContainer">
+    <strong class="progress-label progress-bar-show-label">Status:</strong>
+    <div class="progress">
+      <div class="progress-bar progress-bar-success" role="progressbar" style="width:20%">
+        Entered
+      </div>
+    </div>
+  </p>
+<% elsif obj == 'Insurance Reviewed' %>
+  <p class="progressContainer">
+    <strong class="progress-label progress-bar-show-label">Status:</strong>
+    <div class="progress">
+      <div class="progress-bar progress-bar-success" role="progressbar" style="width:20%">
+        Entered
+      </div>
+      <div class="progress-bar progress-bar-primary" role="progressbar" style="width:20%">
+        Insurance Reviewed
+      </div>
+    </div>
+  </p>
+<% elsif obj == 'Contacted' %>
+  <p class="progressContainer">
+    <strong class="progress-label progress-bar-show-label">Status:</strong>
+    <div class="progress">
+      <div class="progress-bar progress-bar-success" role="progressbar" style="width:20%">
+        Entered
+      </div>
+      <div class="progress-bar progress-bar-primary" role="progressbar" style="width:20%">
+        Insurance Reviewed
+      </div>
+      <div class="progress-bar progress-bar-info" role="progressbar" style="width:20%">
+        Contacted
+      </div>
+    </div>
+  </p>
+<% elsif obj == 'Scheduled' %>
+  <p class="progressContainer">
+    <strong class="progress-label progress-bar-show-label">Status:</strong>
+    <div class="progress">
+      <div class="progress-bar progress-bar-success" role="progressbar" style="width:20%">
+        Entered
+      </div>
+      <div class="progress-bar progress-bar-primary" role="progressbar" style="width:20%">
+        Insurance Reviewed
+      </div>
+      <div class="progress-bar progress-bar-info" role="progressbar" style="width:20%">
+        Contacted
+      </div>
+      <div class="progress-bar progress-bar-warning" role="progressbar" style="width:20%">
+        Scheduled
+      </div>
+    </div>
+  </p>
+<% elsif obj == 'Active' %>
+  <p class="progressContainer">
+    <strong class="progress-label progress-bar-show-label">Status:</strong>
+    <div class="progress">
+      <div class="progress-bar progress-bar-success" role="progressbar" style="width:20%">
+        Entered
+      </div>
+      <div class="progress-bar progress-bar-primary" role="progressbar" style="width:20%">
+        Insurance Reviewed
+      </div>
+      <div class="progress-bar progress-bar-info" role="progressbar" style="width:20%">
+        Contacted
+      </div>
+      <div class="progress-bar progress-bar-warning" role="progressbar" style="width:20%">
+        Scheduled
+      </div>
+      <div class="progress-bar progress-bar-success" role="progressbar" style="width:20%">
+        Active
+      </div>
+    </div>
+  </p>
+<% elsif obj == 'Canceled' %>
+  <p class="progressContainer">
+    <strong class="progress-label progress-bar-show-label">Status:</strong>
+    <div class="progress">
+      <div class="progress-bar progress-bar-danger" role="progressbar" style="width:100%">
+        Canceled
+      </div>
+    </div>
+  </p>
+<% end %>
