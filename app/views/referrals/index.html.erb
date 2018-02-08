@@ -15,9 +15,20 @@
           <%= time_ago_in_words(referral.created_at) %> ago,
           last updated: <%= time_ago_in_words(referral.updated_at) %> ago</small>
         </div>
-        <div class="referral-actions">
-          <%= link_to "Edit this referral", edit_referral_path(referral), class: "btn btn-xs btn-primary" %>
+        <div class="referral-meta-data">
+          <% if referral.verified == 'yes' %>
+            <strong class='verified'>Insurance Verified</strong>
+          <% elsif referral.verified == 'pending' %>
+            <strong class='notYetVerified'>Insurance Verification Pending</strong>
+            <% elsif referral.verified == 'rejected' %>
+            <strong class='rejected'>Insurance Rejected</strong>
+          <% end %>
         </div>
+        <% if logged_in? && (current_user == referral.user || current_user.role == 0 || current_user.role == 1) %>
+          <div class="referral-actions">
+            <%= link_to "Edit this referral", edit_referral_path(referral), class: "btn btn-xs btn-primary" %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>

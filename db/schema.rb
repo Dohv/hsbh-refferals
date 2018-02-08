@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180202190020) do
+ActiveRecord::Schema.define(version: 20180208195756) do
 
   create_table "referrals", force: :cascade do |t|
     t.string "first_name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20180202190020) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "verified", default: "pending"
     t.index ["user_id"], name: "index_referrals_on_user_id"
   end
 
@@ -38,6 +39,7 @@ ActiveRecord::Schema.define(version: 20180202190020) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "company_name"
+    t.integer "role"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

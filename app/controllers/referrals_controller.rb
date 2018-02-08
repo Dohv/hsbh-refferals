@@ -42,6 +42,13 @@ class ReferralsController < ApplicationController
     
   private
     def referral_params
-      params.require(:referral).permit(:first_name, :last_name, :ssn, :medicare_id, :phone_number)
+      params.require(:referral).permit(:first_name, :last_name, :ssn, :medicare_id, :phone_number, :verified)
+    end
+
+    def require_same_user
+      if current_user != @referral.user and current_user.role != 0 
+        flash[:danger] = "You can only edit your own referrals"
+        redirect_to root_path
+      end
     end
 end

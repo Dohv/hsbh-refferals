@@ -22,6 +22,7 @@
   <body>
     <div class="navbar navbar-default navbar-static-top">
       <div class="container">
+        <% if current_user %>
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -30,11 +31,23 @@
         <%= link_to 'HCHB Referrals', referrals_path, class: 'navbar-brand', id: 'logo' %>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
-            <li><%= link_to "Referrals", referrals_path %></li>
             <li><%= link_to "New Referral", new_referral_path  %></li>
+            <% if logged_in? && (current_user.role == 0 || current_user.role == 1) %>
+            <li><%= link_to "Referrals", referrals_path %></li>
             <li><%= link_to "Companies", users_path %></li>
+            <% end %>
           </ul>
+          <ul class="nav navbar-right col-md-4">
+              <li class="col-md-8 user-name text-right">
+                <i class="fa fa-user"></i>
+                <% if current_user.company_name.present? %> 
+                  <%= link_to current_user.company_name, user_path(current_user), id: 'profile-btn' %>
+                <% end %>
+              </li>
+              <li class="col-md-4 logout"><%= link_to("logout", destroy_user_session_path, class: "btn btn-xs btn-danger", method: :delete) %></li>
+            </ul>
         </div>
+        <% end %>
       </div>
     </div>
     <%= render 'layouts/messages' %>

@@ -5,4 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :referrals
+
+  def view_company
+    return "#{company_name}".strip if (company_name)
+    "Anonymous"
+  end
+  
 end

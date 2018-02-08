@@ -21,6 +21,10 @@
         <%= f.label :password_confirmation %>
         <%= f.password_field :password_confirmation, class: 'form-control' %>
       </div>
+       <div class="form-group">
+        <%= f.label :admin_0_HCHBstaff_1_client_2 %></br>
+        <%= f.select :role, [0,1,2], autofocus: true, class: 'form-control' %>
+      </div>
       <%= f.submit t('.sign_up', default: 'Sign up'), class: 'btn btn-primary' %>
     <% end %>
   </div>
