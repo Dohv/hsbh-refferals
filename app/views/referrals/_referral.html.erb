@@ -19,7 +19,7 @@
             <strong class='rejected'>Insurance Rejected</strong>
           <% end %>
         </div>
-        <%= render 'progress_bar', obj: referral.status %>
+        <%= render 'referrals/progress_bar', obj: referral.status %>
         <% if logged_in? && (current_user == referral.user || current_user.role == 0 || current_user.role == 1) %>
           <div class="referral-actions">
             <%= link_to "Edit this referral", edit_referral_path(referral), class: "btn btn-xs btn-primary" %>
