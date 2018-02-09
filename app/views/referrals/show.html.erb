@@ -21,8 +21,16 @@
     <% end %>
   </div>
 </div>
-<div class="col-sm-5 col-sm-offset-2">
-  <h4>Notes</h4>
-  <%= render @referral.notes %>
-</div>
-<%= render 'notes/form' %>
+<% if current_user.role < 2 %>
+  <%= render 'notes/form' %>
+  <div class="col-sm-5 col-sm-offset-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <h2 class="page-header">Notes</h2>
+          <%= render @referral.notes %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
