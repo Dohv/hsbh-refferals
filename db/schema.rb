@@ -10,11 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180209021719) do
+ActiveRecord::Schema.define(version: 20180209022031) do
 
   create_table "notes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "referral_id"
+    t.index ["referral_id"], name: "index_notes_on_referral_id"
   end
 
   create_table "referrals", force: :cascade do |t|
