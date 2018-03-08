@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :referrals
 
+  belongs_to :company
+
   def view_company
     return "#{company_name}".strip if (company_name)
     "Anonymous"
