@@ -12,27 +12,27 @@
 
 ActiveRecord::Schema.define(version: 20180307144102) do
 
-  create_table "companies", force: :cascade do |t|
+  create_table "companies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
   end
 
-  create_table "notes", force: :cascade do |t|
+  create_table "notes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "referral_id"
+    t.bigint "referral_id"
     t.text "body"
     t.string "author"
     t.string "date"
     t.index ["referral_id"], name: "index_notes_on_referral_id"
   end
 
-  create_table "referrals", force: :cascade do |t|
+  create_table "referrals", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "ssn"
     t.string "medicare_id"
     t.string "phone_number"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "verified", default: "pending"
@@ -40,7 +40,14 @@ ActiveRecord::Schema.define(version: 20180307144102) do
     t.index ["user_id"], name: "index_referrals_on_user_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "tasks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text "Description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "Done"
+  end
+
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -55,10 +62,13 @@ ActiveRecord::Schema.define(version: 20180307144102) do
     t.datetime "updated_at", null: false
     t.string "user_name"
     t.integer "role"
-    t.integer "company_id"
+    t.bigint "company_id"
     t.index ["company_id"], name: "index_users_on_company_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "notes", "referrals"
+  add_foreign_key "referrals", "users"
+  add_foreign_key "users", "companies"
 end
