@@ -1,4 +1,5 @@
 class User::RegistrationsController < Devise::RegistrationsController
+  protect_from_forgery prepend: true
   before_action :configure_permitted_parameters
 
   
