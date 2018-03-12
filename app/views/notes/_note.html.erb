@@ -2,6 +2,7 @@
   <article class="row">
     <div class="col-md-10 col-sm-10">
       <div class="panel panel-default arrow left">
+      <% if note.body %>
         <div class="panel-body">
           <header class="text-left">
             <div class="comment-user"><i class="fa fa-user"></i> <%= note.author %></div>
@@ -12,6 +13,7 @@
               <%= note.body %>
             </p>
       </div>
+      <% end %>
     </div>
   </article>
 </section>
