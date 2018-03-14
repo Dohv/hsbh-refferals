@@ -17,7 +17,7 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-gem 'tiny_tds', '~> 2.1', '>= 2.1.1'
+# gem 'tiny_tds', '~> 2.1', '>= 2.1.1'
 gem 'activerecord-sqlserver-adapter', '~> 5.1', '>= 5.1.6'
 
 # Use mysql as the database for Active Record
