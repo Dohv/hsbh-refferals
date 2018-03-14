@@ -39,12 +39,9 @@
 #   sslca: ssl/BaltimoreCyberTrustRoot.crt.pem
 
 default: &default
-  adapter: mysql2
+  adapter: sqlserver
   encoding: utf8
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password: Moshe121789
-  socket: /tmp/mysql.sock
+ 
 
 development:
   database: refferals_project_db
@@ -55,8 +52,8 @@ development:
 production:
   <<: *default
   host: <%= ENV['DB_HOST'] %>
-  port: 3306
+  port: 1433
   database: <%= ENV['DB_DATABASE'] %>
   username: <%= ENV['DB_USERNAME'] %>
   password: <%= ENV['DB_PASSWORD'] %>
-  # sslca: ssl/BaltimoreCyberTrustRoot.crt.pem
+  azure: TRUE

@@ -1,7 +1,7 @@
 class ReferralsController < ApplicationController
 
   def index
-    @referrals = Referral.paginate(page: params[:page], per_page: 5)
+    @referrals = Referral.paginate(page: params[:page], per_page: 15)
   end
 
   def update
