@@ -26,7 +26,7 @@
         <%= f.text_field :ssn, class: "form-control", placeholder: "Social security number", required: true %>
       </div>
     </div>
-    <div id = "insuranceField1" class="form-group required">
+    <div id="insuranceField1" class="form-group required">
       <div class="control-label col-sm-2">
         <%= f.label :Insurance_ID_id %>
       </div>
@@ -41,7 +41,7 @@
       </div>
      
     </div>
-    <div class="form-group">
+    <div id="insuranceField2" class="form-group">
       <div class="control-label col-sm-2">
         <%= f.label :Insurance_ID_id %>
         <%= f.label :"(optional)", class: "optional" %>
@@ -56,19 +56,19 @@
         <%= f.select(:insurance_name_2, ['AARP Medicare Complete', 'Aetna (only PPO)', 'Emblem', 'Independent Care Systems (ICS) (MCR only)', 'GHI', 'Healthfirst', 'HIP', 'Medicare', 'Healthfirst Medicaid', 'Oxford', 'Senior Whole Health', 'HIP Medicaid', 'United Healthcare', 'Village Care', 'VNS Choice', 'Wellcare', 'Fidelis (MCR only)', 'Centers Plan for Healthy Living(CPHL) (MCR only)', 'Other'], {:prompt => "Choose name"}, { :class => "form-control" }) %>
       </div>
     </div>
-    <div class="form-group">
+    <div id="insuranceField3" class="form-group">
       <div class="control-label col-sm-2">
         <%= f.label :Insurance_ID_id %>
         <%= f.label :"(optional)", class: "optional" %>
       </div>
-      <div class="col-sm-3">
+      <div class="col-sm-2">
         <%= f.text_field :insurance_id_3, class: "form-control", placeholder: "Insurance ID" %>
       </div>
       <div class="control-label col-sm-2">
         <%= f.label :insurance_name %>
       </div>
       <div class="col-sm-3">
-        <%= f.select(:insurance_name_2, ['AARP Medicare Complete', 'Aetna (only PPO)', 'Emblem', 'Independent Care Systems (ICS) (MCR only)', 'GHI', 'Healthfirst', 'HIP', 'Medicare', 'Healthfirst Medicaid', 'Oxford', 'Senior Whole Health', 'HIP Medicaid', 'United Healthcare', 'Village Care', 'VNS Choice', 'Wellcare', 'Fidelis (MCR only)', 'Centers Plan for Healthy Living(CPHL) (MCR only)', 'Other'], {:prompt => "Choose name"}, { :class => "form-control" }) %>
+        <%= f.select(:insurance_name_3, ['AARP Medicare Complete', 'Aetna (only PPO)', 'Emblem', 'Independent Care Systems (ICS) (MCR only)', 'GHI', 'Healthfirst', 'HIP', 'Medicare', 'Healthfirst Medicaid', 'Oxford', 'Senior Whole Health', 'HIP Medicaid', 'United Healthcare', 'Village Care', 'VNS Choice', 'Wellcare', 'Fidelis (MCR only)', 'Centers Plan for Healthy Living(CPHL) (MCR only)', 'Other'], {:prompt => "Choose name"}, { :class => "form-control" }) %>
       </div>
   
     </div>
@@ -99,6 +99,7 @@
       </div>
     </div>
    <% end %>
+
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
       <%= f.submit class: "btn btn-primary btn-lg" %>
@@ -135,6 +136,49 @@
       } else {
         var otherInput1 = $('#otherInsuranceName1');
         $(otherInput1).remove()
+      }
+    });
+
+     var insuranceField2 = document.querySelector('#insuranceField2');
+    var insuranceDropdown2 = document.querySelector('#referral_insurance_name_2');
+
+    $(insuranceDropdown2).change(function() {
+      if (this.value === 'Other') {
+        var otherInput2Container = document.createElement('div');
+        otherInput2Container.setAttribute('class', 'col-sm-3');
+        var otherInput2 = document.createElement('input');
+        otherInput2.setAttribute('id', 'otherInsuranceName2');
+        otherInput2.setAttribute('class', 'form-control');
+        otherInput2.setAttribute('placeholder', 'Insurance name');
+        otherInput2.setAttribute('type', 'text');
+        otherInput2.setAttribute('name', 'referral[insurance_name_2]');
+        otherInput2Container.appendChild(otherInput2);
+        insuranceField2.appendChild(otherInput2Container);
+      } else {
+        var otherInput2 = $('#otherInsuranceName2');
+        $(otherInput2).remove()
+      }
+    });
+
+    var insuranceField3 = document.querySelector('#insuranceField3');
+    var insuranceDropdown3 = document.querySelector('#referral_insurance_name_3');
+
+    $(insuranceDropdown3).change(function() {
+      if (this.value === 'Other') {
+        console.log('in 3');
+        var otherInput3Container = document.createElement('div');
+        otherInput3Container.setAttribute('class', 'col-sm-3');
+        var otherInput3 = document.createElement('input');
+        otherInput3.setAttribute('id', 'otherInsuranceName3');
+        otherInput3.setAttribute('class', 'form-control');
+        otherInput3.setAttribute('placeholder', 'Insurance name');
+        otherInput3.setAttribute('type', 'text');
+        otherInput3.setAttribute('name', 'referral[insurance_name_3]');
+        otherInput3Container.appendChild(otherInput3);
+        insuranceField3.appendChild(otherInput3Container);
+      } else {
+        var otherInput3 = $('#otherInsuranceName3');
+        $(otherInput3).remove()
       }
     });
    
