@@ -34,6 +34,22 @@
   padding-top: 5px;
 }
 
+.required label:first-child:before {
+  content: '*';
+  color: red;
+  margin-left: 2px;
+}
+
+.optional {
+  font-weight: 200;
+  font-style: italic;
+  color: grey;
+}
+
+label {
+  margin: none;
+}
+
 .ssn .medicareID .phoneNumber{
   margin-top: 0;
 }

@@ -2,62 +2,100 @@
 <div class="row">
   <div class="col-xs-12">
     <%= form_for(@referral, :html => {class: "form-horizontal", role: "form"}) do |f| %>
-    <div class="form-group">
+    <div class="form-group required">
       <div class="control-label col-sm-2">
         <%= f.label :first_name %> </br>
         </div>
-        <div class="col-sm-8">
-        <%= f.text_field :first_name, class: "form-control", placeholder: "First name", autofocus: true %>
+        <div class="col-sm-10">
+        <%= f.text_field :first_name, class: "form-control", placeholder: "First name", autofocus: true, required: true %>
         </div>
     </div>
-    <div class="form-group">
+    <div class="form-group required">
       <div class="control-label col-sm-2">
         <%= f.label :last_name %>
       </div>
-      <div class="col-sm-8">
-        <%= f.text_field :last_name, class: "form-control", placeholder: "Last name" %>
+      <div class="col-sm-10">
+        <%= f.text_field :last_name, class: "form-control", placeholder: "Last name", required: true %>
       </div>
     </div>
-    <div class="form-group">
+    <div class="form-group required">
       <div class="control-label col-sm-2">
         <%= f.label :ssn %>
       </div>
-      <div class="col-sm-8">
-        <%= f.text_field :ssn, class: "form-control", placeholder: "Social security number" %>
+      <div class="col-sm-10">
+        <%= f.text_field :ssn, class: "form-control", placeholder: "Social security number", required: true %>
+      </div>
+    </div>
+    <div id = "insuranceField1" class="form-group required">
+      <div class="control-label col-sm-2">
+        <%= f.label :Insurance_ID_id %>
+      </div>
+      <div class="col-sm-2">
+        <%= f.text_field :insurance_id_1, class: "form-control", placeholder: "Insurance ID", required: true %>
+      </div>
+      <div class="control-label col-sm-2">
+        <%= f.label :insurance_name %>
+      </div>
+      <div class="col-sm-3">
+        <%= f.select(:insurance_name_1, ['AARP Medicare Complete', 'Aetna (only PPO)', 'Emblem', 'Independent Care Systems (ICS) (MCR only)', 'GHI', 'Healthfirst', 'HIP', 'Medicare', 'Healthfirst Medicaid', 'Oxford', 'Senior Whole Health', 'HIP Medicaid', 'United Healthcare', 'Village Care', 'VNS Choice', 'Wellcare', 'Fidelis (MCR only)', 'Centers Plan for Healthy Living(CPHL) (MCR only)', 'Other'], {:prompt => "Choose name"}, { :class => "form-control" }) %>
+      </div>
+     
+    </div>
+    <div class="form-group">
+      <div class="control-label col-sm-2">
+        <%= f.label :Insurance_ID_id %>
+        <%= f.label :"(optional)", class: "optional" %>
+      </div>
+      <div class="col-sm-2">
+        <%= f.text_field :insurance_id_2, class: "form-control", placeholder: "Insurance ID" %>
+      </div>
+      <div class="control-label col-sm-2">
+        <%= f.label :insurance_name %>
+      </div>
+      <div class="col-sm-3">
+        <%= f.select(:insurance_name_2, ['AARP Medicare Complete', 'Aetna (only PPO)', 'Emblem', 'Independent Care Systems (ICS) (MCR only)', 'GHI', 'Healthfirst', 'HIP', 'Medicare', 'Healthfirst Medicaid', 'Oxford', 'Senior Whole Health', 'HIP Medicaid', 'United Healthcare', 'Village Care', 'VNS Choice', 'Wellcare', 'Fidelis (MCR only)', 'Centers Plan for Healthy Living(CPHL) (MCR only)', 'Other'], {:prompt => "Choose name"}, { :class => "form-control" }) %>
       </div>
     </div>
     <div class="form-group">
       <div class="control-label col-sm-2">
-        <%= f.label :Medicare_ID_id %>
+        <%= f.label :Insurance_ID_id %>
+        <%= f.label :"(optional)", class: "optional" %>
       </div>
-      <div class="col-sm-8">
-        <%= f.text_field :medicare_id, class: "form-control", placeholder: "Medicare ID" %>
+      <div class="col-sm-3">
+        <%= f.text_field :insurance_id_3, class: "form-control", placeholder: "Insurance ID" %>
       </div>
+      <div class="control-label col-sm-2">
+        <%= f.label :insurance_name %>
+      </div>
+      <div class="col-sm-3">
+        <%= f.select(:insurance_name_2, ['AARP Medicare Complete', 'Aetna (only PPO)', 'Emblem', 'Independent Care Systems (ICS) (MCR only)', 'GHI', 'Healthfirst', 'HIP', 'Medicare', 'Healthfirst Medicaid', 'Oxford', 'Senior Whole Health', 'HIP Medicaid', 'United Healthcare', 'Village Care', 'VNS Choice', 'Wellcare', 'Fidelis (MCR only)', 'Centers Plan for Healthy Living(CPHL) (MCR only)', 'Other'], {:prompt => "Choose name"}, { :class => "form-control" }) %>
+      </div>
+  
     </div>
-    <div class="form-group">
+    <div class="form-group required">
       <div class="control-label col-sm-2">
         <%= f.label :Phone_number %>
       </div>
       <div class="col-sm-8">
-        <%= f.text_field :phone_number, class: "form-control", placeholder: "Phone number" %>
+        <%= f.text_field :phone_number, class: "form-control", placeholder: "Phone number", required: true %>
       </div>
     </div>
   <% if current_user.role < 2 %>
-    <div class="form-group">
+    <div class="form-group required">
       <div class="control-label col-sm-2">
         <%= f.label :Insurance_Verified %>
       </div>
-      <div class="col-sm-10">
-        <%= f.select :verified, ['yes', 'pending', 'rejected'], class: "form-control", id: "sel1" %>
+      <div class="col-sm-8">
+        <%= f.select(:verified, ['yes', 'pending', 'rejected'], {:id => "sel1"}, { :class => "form-control" }) %>
       </div>
     </div>
 
-     <div class="form-group">
+     <div class="form-group required">
       <div class="control-label col-sm-2">
         <%= f.label :Status %>
       </div>
-      <div class="col-sm-10">
-        <%= f.select :status, ['Entered', 'Insurance Reviewed', 'Contacted', 'Scheduled', 'Active', 'Canceled'] %>
+      <div class="col-sm-8">
+        <%= f.select(:status, ['Entered', 'Insurance Reviewed', 'Contacted', 'Scheduled', 'Active', 'Canceled'], {}, {:class => "form-control" }) %>
       </div>
     </div>
    <% end %>
@@ -78,3 +116,26 @@
      <% end %>`
     </div>
   </div>
+  <script>
+    var insuranceField1 = document.querySelector('#insuranceField1');
+    var insuranceDropdown1 = document.querySelector('#referral_insurance_name_1');
+
+    $(insuranceDropdown1).change(function() {
+      if (this.value === 'Other') {
+        var otherInput1Container = document.createElement('div');
+        otherInput1Container.setAttribute('class', 'col-sm-3');
+        var otherInput1 = document.createElement('input');
+        otherInput1.setAttribute('id', 'otherInsuranceName1');
+        otherInput1.setAttribute('class', 'form-control');
+        otherInput1.setAttribute('placeholder', 'Insurance name');
+        otherInput1.setAttribute('type', 'text');
+        otherInput1.setAttribute('name', 'referral[insurance_name_1]');
+        otherInput1Container.appendChild(otherInput1);
+        insuranceField1.appendChild(otherInput1Container);
+      } else {
+        var otherInput1 = $('#otherInsuranceName1');
+        $(otherInput1).remove()
+      }
+    });
+   
+  </script>

@@ -2,7 +2,7 @@
 <h2 align="center"><%= @referral.first_name %> <%= @referral.last_name %></h2>
 <div class="well col-xs-8 col-xs-offset-2">
   <h4 class="center ssn"><strong>SSN:</strong>  <%= @referral.ssn %></h4>
-  <h4 class="center medicareID"><strong>Medicare ID:</strong>  <%= @referral.medicare_id %></h4>
+  <h4 class="center medicareID"><strong>Insurance ID:</strong>  <%= @referral.insurance_id_1 %></h4>
   <h4 class="center phoneNumber"><strong>Phone number:</strong>  <%= @referral.phone_number %></h4>
   <% if @referral.verified == 'yes' %>
     <h4><strong class='verified'>Insurance Verified</strong></h4>

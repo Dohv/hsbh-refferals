@@ -222,7 +222,6 @@ PLATFORMS
 DEPENDENCIES
   activerecord-sqlserver-adapter (~> 5.1, >= 5.1.6)
   bootstrap-will_paginate (= 1.0.0)
-  bundler (~> 1.16, >= 1.16.1)
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)

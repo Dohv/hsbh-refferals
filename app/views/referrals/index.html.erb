@@ -11,6 +11,8 @@
         <th>Firstname</th>
         <th>Lastname</th>
         <th>Social</th>
+        <th>Status</th>
+        <th>Created</th>
       </tr>
     </thead>
     <% @referrals.each do |referral| %>
@@ -19,6 +21,8 @@
           <td><%= link_to referral.first_name, referral_path(referral) %></td>
           <td><%= link_to referral.last_name, referral_path(referral) %></td>
           <td><%= referral.ssn %></td>
+          <td><%= referral.status %></td>
+          <td><%= time_ago_in_words(referral.created_at) %> ago</td>
         </tr>
       </tbody>
     <% end %>
