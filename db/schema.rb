@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180410183617) do
+ActiveRecord::Schema.define(version: 20180411184712) do
 
   create_table "companies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20180410183617) do
     t.string "last_name"
     t.string "ssn"
     t.string "insurance_id_1"
-    t.string "phone_number"
+    t.string "phone_number_1"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -42,6 +42,9 @@ ActiveRecord::Schema.define(version: 20180410183617) do
     t.string "insurance_name_1"
     t.string "insurance_name_2"
     t.string "insurance_name_3"
+    t.string "phone_number_2"
+    t.string "phone_number_3"
+    t.date "date_of_birth"
     t.index ["user_id"], name: "index_referrals_on_user_id"
   end
 

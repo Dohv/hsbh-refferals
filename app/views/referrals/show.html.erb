@@ -1,6 +1,8 @@
 
 <h2 align="center"><%= @referral.first_name %> <%= @referral.last_name %></h2>
 <div class="well col-xs-8 col-xs-offset-2">
+  <h6 align="center" class="referredBy"><strong>Referred by:</strong> <%= @referral.user.user_name %></h6>
+  <h4 class="ssn"><strong>Date of birth:</strong>  <%= @referral.date_of_birth %></h4>
   <h4 class="ssn"><strong>SSN:</strong>  <%= @referral.ssn %></h4>
   <h4><strong>Insurance ID:</strong>  <%= @referral.insurance_id_1 %> </h4>
   <h4 class="insuranceName"><strong>Insurance Name:</strong> <%= @referral.insurance_name_1 %> </h4>
@@ -13,7 +15,13 @@
   </h4>
   <h4 class="insuranceName"><strong>Insurance Name 3:</strong> <%= @referral.insurance_name_3 %> </h4>
   <% end %>
-  <h4 class="phoneNumber"><strong>Phone number:</strong>  <%= @referral.phone_number %></h4>
+  <h4 class="phoneNumber"><strong>Phone number:</strong>  <%= @referral.phone_number_1 %></h4>
+  <% if @referral.phone_number_2.present? %>
+    <h4 class="phoneNumber"><strong>Phone number:</strong>  <%= @referral.phone_number_2 %></h4>
+  <% end %>
+  <% if @referral.phone_number_3.present? %>
+    <h4 class="phoneNumber"><strong>Phone number:</strong>  <%= @referral.phone_number_3 %></h4>
+  <% end %>
   <% if @referral.verified == 'yes' %>
     <h4><strong class='verified'>Insurance Verified</strong></h4>
   <% elsif @referral.verified == 'pending' %>

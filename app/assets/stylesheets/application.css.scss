@@ -102,8 +102,20 @@ label {
   margin-top: 10px;
 }
 
+.referredBy {
+  border: 1px solid rgb(214, 212, 212);
+}
+
+.ssn {
+  border-bottom: 1px solid rgb(214, 212, 212);
+}
+
 .insuranceName {
-  border-bottom: 1px solid rgb(163, 162, 162);
+  border-bottom: 1px solid rgb(214, 212, 212);
+}
+
+.phoneNumber {
+  border-bottom: 1px solid rgb(214, 214, 214);
 }
 
 .verified {

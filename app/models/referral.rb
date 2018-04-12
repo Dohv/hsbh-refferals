@@ -11,5 +11,8 @@ class Referral < ApplicationRecord
   validates :insurance_name_1, presence: true
   validates :insurance_name_2, presence: false
   validates :insurance_name_3, presence: false
-  validates :phone_number, presence: true
+  validates :phone_number_1, presence: true
+  validates :phone_number_2, presence: false
+  validates :phone_number_3, presence: false
+  validates :date_of_birth, presence: true
 end

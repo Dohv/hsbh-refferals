@@ -1,7 +1,7 @@
 class ReferralsController < ApplicationController
 
   def index
-    @referrals = Referral.paginate(page: params[:page], per_page: 15)
+    @referrals = Referral.paginate(page: params[:page], per_page: 15).order("created_at DESC")
   end
 
   def update
@@ -42,7 +42,7 @@ class ReferralsController < ApplicationController
     
   private
     def referral_params
-      params.require(:referral).permit(:first_name, :last_name, :ssn, :insurance_id_1, :insurance_id_2, :insurance_id_3, :insurance_name_1, :insurance_name_2, :insurance_name_3, :phone_number, :verified, :status)
+      params.require(:referral).permit(:first_name, :last_name, :date_of_birth, :ssn, :insurance_id_1, :insurance_id_2, :insurance_id_3, :insurance_name_1, :insurance_name_2, :insurance_name_3, :phone_number_1, :phone_number_2, :phone_number_3, :verified, :status)
     end
 
     def require_same_user

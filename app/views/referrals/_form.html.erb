@@ -20,6 +20,14 @@
     </div>
     <div class="form-group required">
       <div class="control-label col-sm-2">
+        <%= f.label :dob%>
+      </div>
+      <div class="col-sm-10">
+        <input type="date" class="form-control" id="date" name='referral[date_of_birth]'/>
+      </div>
+    </div>
+    <div class="form-group required">
+      <div class="control-label col-sm-2">
         <%= f.label :ssn %>
       </div>
       <div class="col-sm-10">
@@ -76,8 +84,14 @@
       <div class="control-label col-sm-2">
         <%= f.label :Phone_number %>
       </div>
-      <div class="col-sm-8">
-        <%= f.text_field :phone_number, class: "form-control", placeholder: "Phone number", required: true %>
+      <div class="col-sm-3">
+        <%= f.text_field :phone_number_1, class: "form-control", placeholder: "Phone number", required: true %>
+      </div>
+      <div class="col-sm-3">
+        <%= f.text_field :phone_number_2, class: "form-control", placeholder: "Phone number (optional)" %>
+      </div>
+      <div class="col-sm-3">
+        <%= f.text_field :phone_number_3, class: "form-control", placeholder: "Phone number (optional)" %>
       </div>
     </div>
   <% if current_user.role < 2 %>
