@@ -27,6 +27,7 @@ vendor/bundle/
 Dockerfile
 
 database.yml
+secrets.yml
 
 public/assets
 
