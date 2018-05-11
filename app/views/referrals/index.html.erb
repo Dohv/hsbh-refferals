@@ -1,7 +1,9 @@
+<%#= render 'referrals/lookup' %>
+
 
 <h1 align="center">Listing all referrals</h1>
 <div align="center">
-  <%= will_paginate %>
+  <%#= will_paginate %>
 </div>
 <input class="form-control" id="myInput" type="text" placeholder="Search..">
 <br>
@@ -12,6 +14,7 @@
         <th>Lastname</th>
         <th>Social</th>
         <th>Status</th>
+        <th>Initial visit date (yyyy-mm-dd)</th>
         <th>Created</th>
       </tr>
     </thead>
@@ -22,6 +25,11 @@
           <td><%= link_to referral.last_name, referral_path(referral) %></td>
           <td><%= referral.ssn %></td>
           <td><%= referral.status %></td>
+          <% if referral.initial_visit != nil %>
+          <td><%= referral.initial_visit %></td>
+          <% else %>
+          <td>Not yet scheduled</td>
+          <% end %>
           <td><%= time_ago_in_words(referral.created_at) %> ago</td>
         </tr>
       </tbody>
@@ -30,7 +38,7 @@
 
  <%#= render 'referral', obj: @referrals %>
 <div align="center">
-  <%= will_paginate %>
+  <%#= will_paginate %>
 </div>
 
 <script>
@@ -42,4 +50,5 @@ $(document).ready(function(){
     });
   });
 });
+
 </script>

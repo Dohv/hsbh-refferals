@@ -1,7 +1,7 @@
 class ReferralsController < ApplicationController
 
   def index
-    @referrals = Referral.paginate(page: params[:page], per_page: 15).order("created_at DESC")
+    @referrals = Referral.order("created_at DESC")
   end
 
   def update
@@ -38,11 +38,23 @@ class ReferralsController < ApplicationController
     @referral = Referral.find(params[:id])
   end
 
+  def search
+    if params[:search_param].blank?
+      flash.now[:danger] = "You have entered an empty search string"
+    else
+      @referrals = Referral.search(params[:search_param])
+      flash.now[:danger] = "No referrals match this search criteria" if @referrals.blank?
+    end
+    respond_to do |format|
+      format.js { render partial: 'referrals/result' }
+    end
+  end
+
   
     
   private
     def referral_params
-      params.require(:referral).permit(:first_name, :last_name, :date_of_birth, :ssn, :insurance_id_1, :insurance_id_2, :insurance_id_3, :insurance_name_1, :insurance_name_2, :insurance_name_3, :phone_number_1, :phone_number_2, :phone_number_3, :verified, :status)
+      params.require(:referral).permit(:first_name, :last_name, :date_of_birth, :street1, :street2, :city, :state, :zip_code, :ssn, :insurance_id_1, :insurance_id_2, :insurance_id_3, :insurance_name_1, :insurance_name_2, :insurance_name_3, :phone_number_1, :phone_number_2, :phone_number_3, :verified, :status, :initial_visit)
     end
 
     def require_same_user

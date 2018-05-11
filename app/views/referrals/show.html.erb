@@ -3,6 +3,7 @@
 <div class="well col-xs-8 col-xs-offset-2">
   <h6 align="center" class="referredBy"><strong>Referred by:</strong> <%= @referral.user.user_name %></h6>
   <h4 class="ssn"><strong>Date of birth:</strong>  <%= @referral.date_of_birth %></h4>
+  <h4 class="address"><strong>Address:</strong>  <%= @referral.street1 %>, <%= @referral.street2 %>, <%= @referral.city %>, <%= @referral.state %>, <%= @referral.zip_code %></h4>
   <h4 class="ssn"><strong>SSN:</strong>  <%= @referral.ssn %></h4>
   <h4><strong>Insurance ID:</strong>  <%= @referral.insurance_id_1 %> </h4>
   <h4 class="insuranceName"><strong>Insurance Name:</strong> <%= @referral.insurance_name_1 %> </h4>
@@ -42,12 +43,13 @@
   <div class="col-sm-5 col-sm-offset-2">
     <div class="container">
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-8 referral-notes">
           <h2 class="page-header">Notes</h2>
-          <%= render @referral.notes %>
+          <%= render @referral.notes.order(id: :desc) %>
         </div>
       </div>
     </div>
   </div>
+
 
          

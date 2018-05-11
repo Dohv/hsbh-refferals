@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180411184712) do
+ActiveRecord::Schema.define(version: 20180511144124) do
 
   create_table "companies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -45,6 +45,12 @@ ActiveRecord::Schema.define(version: 20180411184712) do
     t.string "phone_number_2"
     t.string "phone_number_3"
     t.date "date_of_birth"
+    t.date "initial_visit"
+    t.string "street1"
+    t.string "street2"
+    t.string "city"
+    t.string "state"
+    t.string "zip_code"
     t.index ["user_id"], name: "index_referrals_on_user_id"
   end
 

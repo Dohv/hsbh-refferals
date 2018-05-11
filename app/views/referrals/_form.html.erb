@@ -23,9 +23,45 @@
         <%= f.label :dob%>
       </div>
       <div class="col-sm-10">
-        <input type="date" class="form-control" id="date" name='referral[date_of_birth]'/>
+        <input type="date" 
+        class="form-control" 
+        id="date" 
+        name='referral[date_of_birth]' 
+        value=<%= @referral.date_of_birth %>
+        />
       </div>
     </div>
+    <div class="form-group required">
+      <div class="control-label col-sm-2">
+        <%= f.label :Address_line_1 %>
+      </div>
+      <div class="col-sm-10">
+        <%= f.text_field :street1, class: "form-control", placeholder: "Street 1", required: true %>
+      </div>
+    </div>
+    <div class="form-group required">
+      <div class="control-label col-sm-2">
+        <%= f.label :Address_line_2 %>
+      </div>
+      <div class="col-sm-10">
+        <%= f.text_field :street2, class: "form-control", placeholder: "Street 2", required: true %>
+      </div>
+    </div>
+    <div class="form-group required">
+      <div class="control-label col-sm-2">
+        <%= f.label :Address_line_3 %>
+      </div>
+      <div class="col-sm-3">
+        <%= f.text_field :city, class: "form-control", placeholder: "City", required: true %>
+      </div>
+      <div class="col-sm-3">
+        <%= f.select(:state, ['AL','AK','AS','AZ','AR','CA','CO','CT','DE','DC','FM','FL','GA','GU','HI','ID','IL','IN','IA','KS','KY','LA','ME','MH','MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND','MP','OH','OK','OR','PW','PA','PR','RI','SC','SD','TN','TX','UT','VT','VI','VA','WA','WV','WI','WY'], {:prompt => "State"}, { :class => "form-control" }) %>
+      </div>
+      <div class="col-sm-3">
+        <%= f.text_field :zip_code, class: "form-control", placeholder: "zip code", required: true %>
+      </div>
+    </div>
+
     <div class="form-group required">
       <div class="control-label col-sm-2">
         <%= f.label :ssn %>
@@ -109,10 +145,25 @@
         <%= f.label :Status %>
       </div>
       <div class="col-sm-8">
-        <%= f.select(:status, ['Entered', 'Insurance Reviewed', 'Contacted', 'Scheduled', 'Active', 'Canceled'], {}, {:class => "form-control" }) %>
+        <%= f.select(:status, ['Entered', 'Insurance Reviewed', 'Contacted', 'Scheduled', 'Seen', 'Active', 'Canceled'], {}, {:class => "form-control" }) %>
       </div>
     </div>
+
+    <div class="form-group">
+      <div class="control-label col-sm-2">
+        <%= f.label :Initial_visit%>
+      </div>
+      <div class="col-sm-10">
+        <input type="date" 
+        class="form-control" 
+        id="initial_visit_date" 
+        name='referral[initial_visit]'
+        />
+      </div>
+    </div>
+
    <% end %>
+
 
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">

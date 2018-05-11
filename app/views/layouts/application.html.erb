@@ -31,9 +31,10 @@
         <%= link_to 'HCHB Referrals', referrals_path, class: 'navbar-brand', id: 'logo' %>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
-            <% if logged_in? && (current_user.role == 0 || current_user.role == 2) %>
+            <%# if logged_in? && (current_user.role == 0 || current_user.role == 2) %>
             <li><%= link_to "New Referral", new_referral_path  %></li>
-            <% end %>
+            <li><%#= link_to 'My Profile', edit_registration_path(current_user) %></li>
+            <%# end %>
           </ul>
           <ul class="nav navbar-right col-md-4">
               <li class="col-md-8 user-name text-right">

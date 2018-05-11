@@ -30,3 +30,4 @@ database.yml
 
 public/assets
 
+.gitignore

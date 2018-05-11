@@ -15,4 +15,18 @@ class Referral < ApplicationRecord
   validates :phone_number_2, presence: false
   validates :phone_number_3, presence: false
   validates :date_of_birth, presence: true
+
+  def full_name
+    return "#{first_name} #{last_name}".strip if (first_name || last_name)
+    "Anonymous"
+  end
+
+  def self.last_name_matches(param)
+    matches('last_name', param)
+  end
+
+  def self.dob_matches(param)
+    matches('dob', param)
+  end
+
 end
