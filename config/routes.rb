@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :referrals, except: [:destroy] do
     resources :notes, except: [:destroy]
   end
+  match '*path' => redirect('/'), via: :get
 end

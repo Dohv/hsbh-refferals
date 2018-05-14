@@ -24,6 +24,7 @@ class NotesController < ApplicationController
   def show
     @referral = Referral.find(params[:referral_id])
     @referral_notes = @referral.notes.order(id: :desc)
+    render @referral.notes.order(id: :desc)
   end
 
   private

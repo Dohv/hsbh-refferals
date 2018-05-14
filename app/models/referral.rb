@@ -15,6 +15,10 @@ class Referral < ApplicationRecord
   validates :phone_number_2, presence: false
   validates :phone_number_3, presence: false
   validates :date_of_birth, presence: true
+  validates :street1, presence: true
+  validates :city, presence: true
+  validates :state, presence: true
+  validates :zip_code, presence: true
 
   def full_name
     return "#{first_name} #{last_name}".strip if (first_name || last_name)

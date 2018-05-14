@@ -79,8 +79,13 @@ label {
   padding-left: 0;
 }
 
+.logout-icon-name {
+  display: flex;
+}
+
 .user-name {
   padding-top: 15px;
+  padding-right: 0;
 }
 
 .nav.navbar-right li {
@@ -94,8 +99,7 @@ label {
 }
 
 #profile-btn {
-  display: inline;
-  padding-left: 0px;
+  padding-top: 15px;
 }
 
 #referral_verified {
@@ -147,10 +151,19 @@ label {
 .progress-bar-primary {
   font-size: 9px;
 }
-
+.notes-section {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  margin: 0px 20px 0px 20px;
+}
 .referral-notes {
-  max-height: 300px;
+  max-height: 218px;
   overflow: scroll;
+}
+
+.referral-index {
+  overflow: scroll;
+  max-height: 550px
 }
 
 .red {

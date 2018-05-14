@@ -36,14 +36,10 @@
             <li><%#= link_to 'My Profile', edit_registration_path(current_user) %></li>
             <%# end %>
           </ul>
-          <ul class="nav navbar-right col-md-4">
+          <ul class="nav navbar-right col-md-4 logout-icon-name">
               <li class="col-md-8 user-name text-right">
                 <i class="fa fa-user"></i>
-                <% if current_user.user_name.present? && current_user.referrals.present?%> 
-                  <%= link_to current_user.user_name, user_path(current_user), id: 'profile-btn' %>
-                  <% else %>
-                  <%= current_user.user_name %>
-                <% end %>
+                <li><%= link_to current_user.user_name, edit_registration_path(current_user), id: 'profile-btn' %></li>
               </li>
               <li class="col-md-4 logout"><%= link_to("logout", destroy_user_session_path, class: "btn btn-xs btn-danger", method: :delete) %></li>
             </ul>

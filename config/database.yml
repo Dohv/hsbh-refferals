@@ -49,26 +49,32 @@ development:
   username: root
   password: Moshe121789
 
-production:
-  <<: *default
-  host: dbsuperman.database.windows.net
-  port: 1433
-  database: hcrefsqldb
-  username: dovs
-  password: Jason070190
-  azure: TRUE
-
 # production:
 #   <<: *default
-#   host: <%= ENV['DB_HOST'] %>
+#   host: dbsuperman.database.windows.net
 #   port: 1433
-#   database: <%= ENV['DB_DATABASE'] %>
-#   username: <%= ENV['DB_USERNAME'] %>
-#   password: <%= ENV['DB_PASSWORD'] %>
+#   database: hcrefsqldb
+#   username: dovs
+#   password: Jason070190
 #   azure: TRUE
+
+production:
+  <<: *default
+  host: <%= ENV['DB_HOST'] %>
+  port: 1433
+  database: <%= ENV['DB_DATABASE'] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  azure: TRUE
 
   # export DB_HOST=dbsuperman.database.windows.net
   # export DB_DATABASE=hcrefsqldb
   # export DB_USERNAME=dovs
   # export DB_PASSWORD=Jason070190
+
+# ENV DB_HOST=hcrefsqlserver.database.windows.net
+# ENV PORT=3000
+# ENV DB_DATABASE=hcrefsqldb
+# ENV DB_USERNAME=dovs@hcrefsqlserver
+# ENV DB_PASSWORD=Jason070190
 
