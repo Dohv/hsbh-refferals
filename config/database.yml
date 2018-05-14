@@ -67,10 +67,10 @@ production:
   password: <%= ENV['DB_PASSWORD'] %>
   azure: TRUE
 
-  # export DB_HOST=dbsuperman.database.windows.net
-  # export DB_DATABASE=hcrefsqldb
-  # export DB_USERNAME=dovs
-  # export DB_PASSWORD=Jason070190
+# export DB_HOST=dbsuperman.database.windows.net
+# export DB_DATABASE=hcrefsqldb
+# export DB_USERNAME=dovs
+# export DB_PASSWORD=Jason070190
 
 # ENV DB_HOST=hcrefsqlserver.database.windows.net
 # ENV PORT=3000

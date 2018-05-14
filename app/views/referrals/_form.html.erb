@@ -136,7 +136,7 @@
         <%= f.label :Insurance_Verified %>
       </div>
       <div class="col-sm-8">
-        <%= f.select(:verified, ['yes', 'pending', 'rejected'], {:id => "sel1"}, { :class => "form-control" }) %>
+        <%= f.select(:verified, ['pending', 'yes', 'rejected'], {:id => "sel1"}, { :class => "form-control" }) %>
       </div>
     </div>
 
@@ -145,7 +145,7 @@
         <%= f.label :Status %>
       </div>
       <div class="col-sm-8">
-        <%= f.select(:status, ['Entered', 'Insurance Reviewed', 'Contacted', 'Scheduled', 'Seen', 'Active', 'Canceled'], {}, {:class => "form-control" }) %>
+        <%= f.select(:status, ['Entered', 'Insurance Reviewed', 'Contacted', 'Scheduled(pending)', 'Scheduled(confirmed)', 'Seen', 'Active', 'Canceled'], {}, {:class => "form-control" }) %>
       </div>
     </div>
 
