@@ -130,6 +130,27 @@
         <%= f.text_field :phone_number_3, class: "form-control", placeholder: "Phone number (optional)" %>
       </div>
     </div>
+
+  <% if current_user.role == 2 %>
+    <div class="form-group required">
+      <div class="control-label col-sm-2">
+        <%= f.label :Status %>
+      </div>
+      <div class="col-sm-8">
+        <%= f.select(:status, ['Draft', 'Entered', 'Delete'], {}, {:class => "form-control status" }) %>
+      </div>
+    </div>
+  <% else %>
+    <div class="form-group required">
+      <div class="control-label col-sm-2">
+        <%= f.label :Status %>
+      </div>
+      <div class="col-sm-8">
+        <%= f.select(:status, ['Entered', 'Insurance Reviewed', 'Contacted', 'Scheduled(pending)', 'Scheduled(confirmed)', 'Seen', 'Active', 'Canceled'], {}, {:class => "form-control status" }) %>
+      </div>
+    </div>
+  <% end %>
+  
   <% if current_user.role < 2 %>
     <div class="form-group required">
       <div class="control-label col-sm-2">
@@ -137,15 +158,6 @@
       </div>
       <div class="col-sm-8">
         <%= f.select(:verified, ['pending', 'yes', 'rejected'], {:id => "sel1"}, { :class => "form-control" }) %>
-      </div>
-    </div>
-
-     <div class="form-group required">
-      <div class="control-label col-sm-2">
-        <%= f.label :Status %>
-      </div>
-      <div class="col-sm-8">
-        <%= f.select(:status, ['Entered', 'Insurance Reviewed', 'Contacted', 'Scheduled(pending)', 'Scheduled(confirmed)', 'Seen', 'Active', 'Canceled'], {}, {:class => "form-control" }) %>
       </div>
     </div>
 
@@ -171,18 +183,18 @@
       </div>
     </div>
       <% end %>
-      <% if current_user.role < 2 %>
      <div class="col-xs-4 col-xs-offset-4">
         [ <%= link_to 'Cancel request and return to referrals', referrals_path %> ]
-     </div> 
-     <% else %>
-      <div class="col-xs-4 col-xs-offset-4">
-          [ <%= link_to 'Cancel request and return to referrals', user_path(current_user) %> ]
-      </div> 
-     <% end %>`
-    </div>
-  </div>
+     </div>
+
   <script>
+    var $inputStatus = $(".status").change(() => {
+      if($inputStatus.val() === "Delete") {
+        alert("Are you sure you want to delete this?");
+      }
+    });
+
+
     var insuranceField1 = document.querySelector('#insuranceField1');
     var insuranceDropdown1 = document.querySelector('#referral_insurance_name_1');
 
@@ -247,4 +259,4 @@
       }
     });
    
-  </script>
+</script>
